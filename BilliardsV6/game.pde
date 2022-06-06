@@ -17,7 +17,6 @@ void game() {
   world.step();
   world.draw();
   calmVel();
-  println(pb.getVelocityX() + ", " + pb.getVelocityY());
 
   /*
   rect(85, 95, 370, 10); // Testing
@@ -37,29 +36,32 @@ void game() {
   circle(480, 521, 28*2);
   */
 
-  for (int i = 1; i < myBalls.size(); i++) {
+  for (int i = 1; i < myBalls.length; i++) {
+    if (myBalls[i] != null){
     // Need to somehow set FWorld balls to ArrayList balls
-    FBody b1 = world.getBody(myBalls.get(i).pos.x, myBalls.get(i).pos.y);
+    FBody b1 = world.getBody(myBalls[i].pos.x, myBalls[i].pos.y);
     if (pb.isTouchingBody(b1)) {
       firstContact = i;
       break;
     }
   }
+  }
 
   int gameWon = 0;
-  for (int i = 0; i < myBalls.size(); i++) {
-    Ball b = myBalls.get(i);
-    if (
-      dist(b.getX(), b.getY(), 45, 97) < 28 ||
+  for (int i = 0; i < myBalls.length; i++) {
+    Ball b = myBalls[i];
+    println(i);
+    if ( b != null && 
+      (dist(b.getX(), b.getY(), 45, 97) < 28 ||
       dist(b.getX(), b.getY(), 45, 503) < 28 ||
       dist(b.getX(), b.getY(), 915, 97) < 28 ||
       dist(b.getX(), b.getY(), 915, 503) < 28 ||
       dist(b.getX(), b.getY(), 480, 78) < 28 ||
-      dist(b.getX(), b.getY(), 480, 521) < 28
+      dist(b.getX(), b.getY(), 480, 521) < 28) 
       ) {
       if (checkVelRest() < 1 && (i == 0 || i == 8)) mode = GAMEOVER;
       world.remove(b);
-      myBalls.remove(i);
+      myBalls[i] = null;
     }
     gameWon += i;
   }

@@ -28,7 +28,7 @@ void newGame() {
     }
   }
   
-  myBalls = new ArrayList<Ball>();
+  myBalls = new Ball[16];
   world = new FWorld();
   world.setGravity(0, 0);
   pb = new PlayerBall();
@@ -40,7 +40,7 @@ void newGame() {
   pb.setRestitution(0.9);
   pb.setStatic(false);
   pb.setGrabbable(false);
-  myBalls.add(pb);
+  myBalls[0] = pb;
   world.add(pb);
   
   // Create all six bumpers
@@ -119,7 +119,7 @@ void newGame() {
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 5-i; j++) { // Convert to ball array for Fisica
       Ball b = new Ball();
-      myBalls.add(b);
+      myBalls[bpi] = b;
       world.add(b);
       b.attachImage(ballImages[ballArrangement[15-bpi]]);
       b.setPosition(800 - i*22.52, 250 + j*26 + i*13);

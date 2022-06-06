@@ -20,7 +20,8 @@ import fisica.*;
 
 FWorld world;
 
-ArrayList<Ball> myBalls;
+// Changing ArrayList into Array to keep indexes consistent
+Ball[] myBalls;
 Ball objectBall = null;
 
 final int INTRO = 0;
@@ -70,8 +71,7 @@ void setup() {
   ballImages[14] = loadImage("balls\\14ball.png");
   ballImages[15] = loadImage("balls\\15ball.png");
   
-  myBalls = new ArrayList<Ball>();
-  
+  myBalls = new Ball[16];
 }
 
 void draw() {

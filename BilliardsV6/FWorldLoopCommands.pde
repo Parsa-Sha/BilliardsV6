@@ -19,3 +19,13 @@ void calmVel() {
     fb.setVelocity(fb.getVelocityX() * 0.98, fb.getVelocityY() * 0.98);
   }
 }
+
+int firstContact() {
+  int contactIndex = 16;
+  fBodyList = world.getBodies();
+  for(int i = 0; i < fBodyList.size(); i++) {
+    FBody fb = fBodyList.get(i);
+    
+  }
+  return contactIndex;
+}
