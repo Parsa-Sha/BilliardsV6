@@ -12,6 +12,7 @@ PVector finalVelocity = new PVector(0, 0);
 PVector distanceCalculation = new PVector(0, 0);
 
 boolean hasShot = false;
+boolean contactMade = false;
 
 void playerShoot() { // We will get back to the shooting code, don't worry about this;
   if (velcel) {
@@ -37,12 +38,16 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
   
   if (checkVelRest() < 1 && hasShot == true) { // When shot is over
     hasShot = false;
+    contactMade = false;
     turn = !turn;
   }
   
   if (checkVelRest() > 1) {
     hasShot = true; // When ball has just been shot
-    if (firstContact() == 16) println(firstContact()); // Incorporate one time per turn firstContact
+    if (!contactMade && firstContact() != 16) {
+      println(firstContact());
+    }
+    if (firstContact() != 16) contactMade = true;
   }
 }
 
