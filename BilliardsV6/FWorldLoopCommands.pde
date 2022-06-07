@@ -20,17 +20,17 @@ void calmVel() {
   }
 }
 
-
-
 int firstContact() {
-  int contactIndex = 16;
   fBodyList = world.getBodies();
   for (int i = 0; i < fBodyList.size(); i++) {
     FBody fb = fBodyList.get(i);
-    if (fb.getClass().equals(Ball) && !fb.getClass().equals(pb.getClass())) { // Checking to make sure we only deal with all balls except pb
-      if (pb.isTouchingBody(fb));
-      return 16;
+    if (fb instanceof Ball && !(fb instanceof PlayerBall)) { // Checking to make sure we only deal with all balls except pb
+      if (pb.isTouchingBody(fb)){
+        for (int j = 1; j < myBalls.length; j++) { // Compare all balls with the one touching playerball
+          if (fb.equals(myBalls[j])) return myBalls[j].id;
+        }
+      } 
     }
   }
-  return contactIndex;
+  return 16;
 }

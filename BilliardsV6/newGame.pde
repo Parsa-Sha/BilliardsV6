@@ -118,7 +118,7 @@ void newGame() {
   int bpi = 1; // Ball placed index, used to refrence which ball should be placed where
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 5-i; j++) { // Convert to ball array for Fisica
-      Ball b = new Ball();
+      Ball b = new Ball(ballArrangement[15-bpi]);
       myBalls[bpi] = b;
       world.add(b);
       b.attachImage(ballImages[ballArrangement[15-bpi]]);

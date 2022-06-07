@@ -40,7 +40,10 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
     turn = !turn;
   }
   
-  if (checkVelRest() > 1) hasShot = true; // When ball has just been shot
+  if (checkVelRest() > 1) {
+    hasShot = true; // When ball has just been shot
+    if (firstContact() == 16) println(firstContact()); // Incorporate one time per turn firstContact
+  }
 }
 
   void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X. Take X change, rotate back, and then apply velocity

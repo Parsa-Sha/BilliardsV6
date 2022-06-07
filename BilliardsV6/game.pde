@@ -18,6 +18,9 @@ void game() {
   world.draw();
   calmVel();
   
+  
+  //println(firstContact());
+  
   /*
   rect(85, 95, 370, 10); // Testing locations of all walls and holes
   rect(505, 95, 370, 10);

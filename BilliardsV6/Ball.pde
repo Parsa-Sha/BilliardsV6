@@ -12,9 +12,9 @@ class Ball extends FCircle {
     id = 1;
   }
   
-  Ball(int identification, PVector location) {
+  Ball(int identification) {
     super(26);
-    pos = location;
+    pos = new PVector(0,0);
     vel = new PVector(0, 0);
     size = 26;
     id = identification;
