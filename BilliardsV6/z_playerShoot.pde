@@ -11,6 +11,7 @@ PVector newVel;
 PVector finalVelocity = new PVector(0, 0);
 PVector distanceCalculation = new PVector(0, 0);
 
+boolean hasShot = false;
 
 void playerShoot() { // We will get back to the shooting code, don't worry about this;
   if (velcel) {
@@ -26,10 +27,20 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
     if (checkVelRest() < 1) image(stick, 0, 0);
     popMatrix();
   }
-
-  stroke(1);
+  
+  stroke(0);
+  strokeWeight(5);
   noFill();
-  if (checkVelRest() < 1) ellipse(30, 30, 26, 26);  
+  if (checkVelRest() < 1) ellipse(30, 30, 26, 26);
+  stroke(255 * int(turn), 0, 255 * int(!turn));
+  ellipse(60, 30, 26, 26);
+  
+  if (checkVelRest() < 1 && hasShot == true) {
+    hasShot = false;
+    turn = !turn;
+  }
+  
+  if (checkVelRest() > 1) hasShot = true;
 }
 
   void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X. Take X change, rotate back, and then apply velocity
@@ -42,6 +53,8 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
     if (gameState == PLAYERSHOOT) {
       if (checkVelRest() < 1) endPressed = new PVector(mouseX, mouseY);
       newVel = beginPressed.sub(endPressed);
+      
+      newVel.setMag(newVel.mag()*2);
 
       if (pb.getVelocityX() < 0.1 && pb.getVelocityY() < 0.1) pb.setVelocity(newVel.x, newVel.y);
     }

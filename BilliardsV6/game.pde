@@ -17,7 +17,8 @@ void game() {
   world.step();
   world.draw();
   calmVel();
-
+  println(int(true));
+  
   /*
   rect(85, 95, 370, 10); // Testing
   rect(505, 95, 370, 10);
@@ -50,7 +51,6 @@ void game() {
   int gameWon = 0;
   for (int i = 0; i < myBalls.length; i++) {
     Ball b = myBalls[i];
-    println(i);
     if ( b != null && 
       (dist(b.getX(), b.getY(), 45, 97) < 28 ||
       dist(b.getX(), b.getY(), 45, 503) < 28 ||
