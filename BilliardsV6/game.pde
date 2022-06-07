@@ -17,10 +17,9 @@ void game() {
   world.step();
   world.draw();
   calmVel();
-  println(int(true));
   
   /*
-  rect(85, 95, 370, 10); // Testing
+  rect(85, 95, 370, 10); // Testing locations of all walls and holes
   rect(505, 95, 370, 10);
   rect(85, 495, 370, 10);
   rect(505, 495, 370, 10);

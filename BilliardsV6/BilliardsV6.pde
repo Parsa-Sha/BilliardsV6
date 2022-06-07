@@ -13,8 +13,10 @@
 
 // Bug fixes:
 //   Fix garbage holes [DONE]
-//   Fix newgame to reset ball positions
+//   Fix newgame to reset ball positions [DONE]
 //   Fix phisics (Make balls move properly and not slide)
+//   Fix gameover not happening when ball is pocketed
+//   Fix firstContact function in FWorldLoopCommands
 
 import fisica.*;
 

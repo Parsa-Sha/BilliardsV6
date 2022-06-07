@@ -35,12 +35,12 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
   stroke(255 * int(turn), 0, 255 * int(!turn));
   ellipse(60, 30, 26, 26);
   
-  if (checkVelRest() < 1 && hasShot == true) {
+  if (checkVelRest() < 1 && hasShot == true) { // When shot is over
     hasShot = false;
     turn = !turn;
   }
   
-  if (checkVelRest() > 1) hasShot = true;
+  if (checkVelRest() > 1) hasShot = true; // When ball has just been shot
 }
 
   void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X. Take X change, rotate back, and then apply velocity

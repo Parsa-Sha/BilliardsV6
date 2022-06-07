@@ -20,19 +20,17 @@ void calmVel() {
   }
 }
 
-/*
+
 
 int firstContact() {
   int contactIndex = 16;
   fBodyList = world.getBodies();
   for (int i = 0; i < fBodyList.size(); i++) {
     FBody fb = fBodyList.get(i);
-    if (fb.getClass() == Ball && fb.getClass() != pb) { // Checking to make sure we only deal with all balls except pb
+    if (fb.getClass().equals(Ball) && !fb.getClass().equals(pb.getClass())) { // Checking to make sure we only deal with all balls except pb
       if (pb.isTouchingBody(fb));
       return 16;
     }
   }
   return contactIndex;
 }
-
-*/
