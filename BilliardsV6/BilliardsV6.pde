@@ -1,6 +1,7 @@
 // BilliardsV4 
 // Introduction to Fisica, using basic ball and box collisions
 
+// Next time use mode framework to sort out different variables.
 
 // To do:
 //   Fix velocity code

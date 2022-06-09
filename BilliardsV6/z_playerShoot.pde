@@ -1,13 +1,11 @@
 boolean hasPressed;
 float rotationPressed;
-float angle;
 
 PVector beginPressed, endPressed;
 PVector newVel;
 
 boolean hasShot = false;
 boolean contactMade = false;
-
 
 void playerShoot() { // We will get back to the shooting code, don't worry about this;
   if (velcel) {
