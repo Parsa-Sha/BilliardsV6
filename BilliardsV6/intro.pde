@@ -12,6 +12,7 @@ void intro() {
   if (newGame) newGame();
   
   fill(0);
+  stroke(0);
   textSize(50);
   textAlign(CENTER, CENTER);
   text("BILLIARDS V1", width/2, 200);

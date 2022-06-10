@@ -8,6 +8,8 @@ boolean hasShot = false;
 boolean contactMade = false;
 
 void playerShoot() { // We will get back to the shooting code, don't worry about this;
+  float firstContact = firstContact();
+  
   if (velcel) {
     velcel = false;
     mousePressed = false;
@@ -36,7 +38,13 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
 
   if (checkVelRest() > 1) hasShot = true; // When ball has just been shot
   
-  firstContact();
+    
+  
+  if (
+    firstContact != 0 &&
+    (!turn && firstContact > 0 && firstContact < 8 || 
+    turn && firstContact > 8 && firstContact < 16)
+    ) mode = GAMEOVER;
 }
 
 void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X. Take X change, rotate back, and then apply velocity

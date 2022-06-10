@@ -3,6 +3,10 @@
 
 // Next time use mode framework to sort out different variables.
 
+// Next version:
+//   Include scratch
+//   
+
 // To do:
 //   Fix velocity code
 //   Add two players & solids/stripes teams
@@ -54,6 +58,7 @@ void setup() {
   Fisica.init(this);
   world = new FWorld();
   world.setGravity(0, 0);
+  frameRate(30);
   
   table = loadImage("images\\EightBallTable.png");
   stick = loadImage("images\\poolStick.png");

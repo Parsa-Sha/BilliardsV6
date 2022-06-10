@@ -40,9 +40,8 @@ int firstContact() {
   if (checkVelRest() < 1) {
     if (contactMade) {
       contactMade = false;
-      println(returning);
       return returning;
-    }
+    } 
   }
   return 0;
 }

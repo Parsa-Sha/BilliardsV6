@@ -19,8 +19,6 @@ void game() {
   calmVel();
   
   
-  //println(firstContact());
-  
   /*
   rect(85, 95, 370, 10); // Testing locations of all walls and holes
   rect(505, 95, 370, 10);
@@ -61,7 +59,7 @@ void game() {
       dist(b.getX(), b.getY(), 480, 78) < 28 ||
       dist(b.getX(), b.getY(), 480, 521) < 28) 
       ) {
-      if (checkVelRest() < 1 && (i == 0 || i == 8)) mode = GAMEOVER;
+      if ((i == 0 || i == 8)) mode = GAMEOVER;
       world.remove(b);
       myBalls[i] = null;
     }
