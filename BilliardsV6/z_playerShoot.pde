@@ -9,7 +9,7 @@ boolean contactMade = false;
 
 void playerShoot() { // We will get back to the shooting code, don't worry about this;
   float firstContact = firstContact();
-  
+
   if (velcel) {
     velcel = false;
     mousePressed = false;
@@ -31,20 +31,31 @@ void playerShoot() { // We will get back to the shooting code, don't worry about
   stroke(255 * int(turn), 0, 255 * int(!turn));
   ellipse(60, 30, 26, 26);
 
-  if (checkVelRest() < 1 && hasShot == true) { // When shot is over
+  if (checkVelRest() < 1 && hasShot) { // When shot is over
     hasShot = false;
-    turn = !turn;
+    if (anotherTurn) anotherTurn = false;
+    else turn = !turn;
   }
 
   if (checkVelRest() > 1) hasShot = true; // When ball has just been shot
+
+  if (firstContact != 0) { // After balls have come to a rest
+    if (solidStripe) { // Check the teams
+      if ( // Then ask according to teams
+        !turn && firstContact > 0 && firstContact < 8 ||
+        turn && firstContact > 8 && firstContact < 16
+          ) mode = GAMEOVER;
+    } else {
+      if (
+        turn && firstContact > 0 && firstContact < 8 ||
+        !turn && firstContact > 8 && firstContact < 16
+          ) mode = GAMEOVER;
+    }
+  }
   
-    
-  
-  if (
-    firstContact != 0 &&
-    (!turn && firstContact > 0 && firstContact < 8 || 
-    turn && firstContact > 8 && firstContact < 16)
-    ) mode = GAMEOVER;
+  if (firstContact != 0) {
+    if (firstContact == 8 && allBallsBut8[int(!turn)]) mode = GAMEOVER;
+  } 
 }
 
 void mousePressed() { // Rotate origin, mouseDragged ignoring Y changes, only X. Take X change, rotate back, and then apply velocity
@@ -58,7 +69,7 @@ void mouseReleased() {
     if (checkVelRest() < 1) endPressed = new PVector(mouseX, mouseY);
     newVel = beginPressed.sub(endPressed);
 
-    newVel.setMag(newVel.mag()*2);
+    newVel.setMag(newVel.mag()*3);
 
     if (pb.getVelocityX() < 0.1 && pb.getVelocityY() < 0.1) pb.setVelocity(newVel.x, newVel.y);
   }

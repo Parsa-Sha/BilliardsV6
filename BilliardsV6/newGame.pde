@@ -1,7 +1,11 @@
 void newGame() {
   newGame = false;
   velcel = true;
-  
+  turn = false;
+  allBallsBut8[0] = false;
+  allBallsBut8[1] = false;
+  solidStripe = true;
+  anotherTurn = false;
 
   for (int i = 0; i < ballArrangement.length; i++) ballArrangement[i] = 16;
   ballArrangement[0] = 1; // Set one ball and eight ball ids

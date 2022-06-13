@@ -5,23 +5,11 @@
 
 // Next version:
 //   Include scratch
-//   
-
-// To do:
-//   Fix velocity code
-//   Add two players & solids/stripes teams
-//   Add scratch
-//   Edit it so that cue ball does not get deleted, only becomes scratch
-//   Add rules:
-//     8 ball in pocket is loss, unless all of that team's balls are gone
-//     Cueball must collide with ball of own team, or else scratch
-
-// Bug fixes:
-//   Fix garbage holes [DONE]
-//   Fix newgame to reset ball positions [DONE]
-//   Fix phisics (Make balls move properly and not slide)
-//   Fix gameover not happening when ball is pocketed
-//   Fix firstContact function in FWorldLoopCommands
+//   Include teams according to ball pocketed
+//   Include changing where you start
+//   Include victory if 8 ball has been pocketed after all team's balls are pocketed
+//   Include another turn if a person's ball has been pocketed
+//   Improve Velocity
 
 import fisica.*;
 
